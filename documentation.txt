@@ -1,0 +1,50 @@
+..................................CODE EXPLANATION..................................
+
+
+1. Loading Binary Content: So basically the initially the open system call to obtain the file descriptor for the input binary.
+                           'read' system call the binary's content into dynamically allocated memory with right size.
+                            we used the 'malloc' to reserve memory space, this will efficiently copy the binary content.
+                            
+2. Identfying PT_LOAD Section: It will move through the program header(PHDR) table within the ELF file.
+                            Here we will locate the section with the 'p_type' designated as PT_LOAD. 
+                            This segment holds essential information regarding the memory address where the corresponding segment should be loaded.
+
+3. Memory Allocation through 'mmap': This is used for the allocate memory of size 'p_memsz' for the PT_LOAD segment pinpointed.
+                            This allocated memory becomes the repository for the segment's content.
+                            Now the copied content is stored in the memory space.
+
+4. Traversing to Entry Address: So for the entry address we need the segment address part, but the entry part start with the initial part of the elf file.
+                            so we have to do the sementic traversal fo the segment to access the virtual address assoicated with the 'e_entry'.
+
+5. Function Pointer Typecasting: Upon arriving at the position determined in the previous phase, proceed to cast the address into a function pointer 
+                            that corresponds to the _start function within the initial fib.c source code. This casting enables the memory location
+                            to be used as an executable function.
+
+6. Calling _start Function: Calling the '_start' fuction by utilizing the function pointer obtained earlier.
+                            The _start function serves as a fundamental entry point for executable programs.
+                            Subsequent to this call, capture and exhibit the value yielded by the _start function.
+
+
+..................................FUNCTIONS EXPLANATION..................................
+
+
+1. loader_cleanup - The function loader_cleanup() is responsible for releasing resources and 
+                    cleaning up memory after the ELF loading and execution process is complete or in case of errors.
+                    
+2. void load_and_run_elf - The 'load_and_run_elf' function is responsible for loading and
+                    running an ELF (Executable and Linkable Format) executable file. This function takes a single 
+                    argument 'exe', which is a string representing the path to the ELF executable file that you want
+                    to load and run.
+
+
+..................................CONTRIBUTIONS..................................
+
+
+
+Rohit Singal : 1. Loading Binary content.
+               2. Identfying PT_LOAD Section.
+               3. Memory Allocation through 'mmap'.
+
+Kanak Yadav  : 4. Traversing to Entry Address.
+               5. Function Pointer Typecasting.
+               6. Calling _start Function.
