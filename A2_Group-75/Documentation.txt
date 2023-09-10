@@ -1,0 +1,62 @@
+SIMPLE SHELL IN C
+
+..........................................................Introduction..........................................................
+
+
+This is an implementation of a simple shell, named "Coco_Shell". 
+It allows user to interact with the operating system through various command-line interface.
+
+
+
+..........................................................Functions..........................................................
+
+
+1. 'count_lines_in_file'   - Count the number of lines in a given file.
+2. 'count_lines_with_word' - Counts the number of lines containing a specific word in a file.
+3. 'search_string_in_file' - Searches for a given string in a file.
+4. 'touch'                 - creates an empty file if it does not exists.
+5. 'read_user_input'       - read the input from the command line given by user.
+6. 'addToHistory'          - Stores command details, including the command itself, the process ID (PID), start time, and duration in a history structure.
+7. 'displayHistory'        - Displays the command history, including the PID, start time, duration, and the command itself.
+8. 'execute_command'       - Executes a command using the execvp system call. Forks a child process and executes the specified command. It also handles
+                             errors and prints exit status.
+9. 'clear_screen'          - Clears the terminal screen.Executes the "clear" command.
+10. 'execute_pipeline'     - Executes a pipeline of commands using pipes. Creates multiple child processes, each executing a command, and sets up pipes 
+                             to pass data between them. This allows for piped command execution.
+11. 'launch'               - This is basically execute and handles built in commands and also check whether the command exists or not if exits excecute the command .
+12. 'main'                 - It displays a prompt, reads user input, processes commands (including piped commands), and executes them using the appropriate functions.
+
+
+.........................................Built in commands that our shell accept ..........................................................
+
+
+1. cd      : Change directory.
+2. exit    : Exit the shell.
+3. ls      : List files in a directory.
+4. cat     : Concatenate and display file contents.
+5. grep    : Search for a pattern in a file.
+6. history : Display command history.
+7. sort    : Sort lines in a file.
+8. wc      : Count lines or characters in a file.
+9. rm      : Remove files.
+10. echo   : Display text.
+11. pwd    : Print current directory.
+12. which  : Display the path to a command.
+13. touch  : Create or update file timestamps.
+14. ./fib and ./helloworld: Execute custom programs.
+
+15. Pipeline Commands: Supports chaining multiple commands together using the pipe ('|') operator.
+
+16. Background Execution: Allows running processes in the background by appending '&' to a command.
+
+
+..............................................EXTRA FILES IN FINAL SUBMISSION...........................................
+
+helloworld.c - to check weather ./helloworld.c command is working or not.
+fib.c - to check wheather ./fib is giving the desired output from the simpleshell.
+random file - which is containg some text files like coco.txt and ox.txt, to check whether cd , cd .. , ls -R and others commands is working or not.
+makefile - the easy running of the code with the command "make run" . So that we can easy run our program using make command on shell.
+
+..........................................................CONTRIBUTIONS..........................................................
+
+This project is collaboratively developed by both partners, with shared contributions throughout its development.
