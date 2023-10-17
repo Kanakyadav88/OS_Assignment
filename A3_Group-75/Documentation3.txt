@@ -1,0 +1,77 @@
+SIMPLE SCHEDULER IN C 
+
+
+.................................................  OVERVIEW  ..................................................
+
+
+CocoShell is a simple process scheduling shell implemented in C. It allows users to submit and execute processes 
+while managing process priorities, process execution history, and scheduling with multiple CPUs.
+
+
+
+............................................. FUNCTIONS EXPLAINATION ..................................................
+
+1. "Header Files":  The code includes several standard C libraries and headers, such as stdio.h, stdlib.h, string.h, unistd.h, time.h, signal.h, and others.
+                    Additionally, it includes header files for handling shared memory, semaphores, and process priorities.
+
+2. "Global Variables":      ncpu: An integer variable to store the number of CPUs.
+                            tslice: An integer variable to store the time slice.
+                            COMMAND_SIZE: A constant representing the maximum size for a command.
+                            maxprocess: A constant representing the maximum number of processes.
+                            shmid: A shared memory ID.
+                            sharedMemory: A pointer to shared memory for storing process information.
+                            process_semaphore: A semaphore used to manage the number of processes running.
+                            scheduling_started: A volatile integer to indicate if the scheduling has started.
+
+3. "Structs":  Process: A struct to represent a process, including its PID and priority.
+               ProcessInfo: A struct to store detailed information about a process, such as PID, priority, execution time, and start time.
+               Node: A struct to build a linked list to store processes in a ready queue.
+               LinkedList: A struct to represent the ready queue.
+
+4. "create_process_and_run Function":  This function is used to fork a child process and execute a given command.It sets the process priority using setpriority.
+                                    If the process is successfully created, it adds process information to shared memory. It writes information about the process execution to a "history.txt" file.
+
+5. "launch Function":  This function is a wrapper around create_process_and_run. It launches a process with a given command and priority.
+                    
+6. "sizechecker Function":  This function checks the size of the ready queue and returns whether it can accommodate more processes or not.
+
+7. "add Function":  This function adds a new process node to the ready queue.
+
+8. "remover Function":  This function removes the first process from the ready queue.
+
+9. "checker Function":  This function checks if a given command has parameters and returns a flag accordingly.
+
+10. "read_user_input Function":  Reads user input from the console and stores it in the command variable.
+
+11. "pidprinter Function":  This function prints the PIDs and executable names of processes in the ready queue.
+
+12. "printer Function":  This function prints the number of processes in the ready queue and calls pidprinter to display details.
+
+13. "schedular Function":  This function creates and schedules a child process to execute a given command. It uses fork, execl, and waitpid.
+
+14. "round_robin_schedule Function":  It performs round-robin scheduling for processes in the ready queue. It starts multiple child processes to run concurrently up to a specified number (ncpu).
+                                      The processes execute the schedular function. It keeps track of start times and provides execution details.
+
+15. "Signal Handling Functions":  start_handle: Handles the SIGUSR1 signal to start the scheduling.
+                                my_handler: Handles the SIGINT signal and provides a way to exit the program.
+
+16. "shell_loop Function":  The main loop of the shell. It reads user input and handles different commands. It checks for blocking system calls, submits jobs, and manages job scheduling. 
+                          It writes the user's input and command history to a file.
+
+17. "main Function":  The entry point of the program. It initializes shared memory, prompts the user for the number of CPUs and time slice, and runs the shell loop.
+
+
+.........................................FUNCTIONALITIES......................................... 
+CocoShell allows users to perform the following tasks:
+
+-> Submit processes with user-defined priorities.
+-> View the execution history of submitted processes.
+-> Execute processes using round-robin scheduling.
+-> Manage the number of CPU cores and time slices.
+-> Handle blocking system calls during process execution.
+-> Exit the shell cleanly while displaying execution history.
+
+.........................................CONTRIBUTIONS.........................................
+
+
+This project is collaboratively developed by both partners, with shared contributions throughout its development.
