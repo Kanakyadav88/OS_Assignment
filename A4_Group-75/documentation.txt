@@ -1,0 +1,37 @@
+                                                SIMPLE-SMART LOADER
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>   Functions  <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+1. loader_cleanup() -    this function is responsible for releasing allocated memory and closing the file descriptor.
+                         This helps avoid memory leaks and ensures proper clean-up.
+
+2. seg_fault_handler() - This function serves as a signal handler for segmentation faults (SIGSEGV) and is triggered when the program 
+                         encounters a page fault due to unallocated memory access. It identifies the faulty address causing the page fault
+                         and attempts to allocate memory by mapping pages based on the ELF program headers. The page content is then copied 
+                         to the allocated memory area. In summary, it handles page fault exceptions, maps memory for the faulted segment, 
+                         and loads the segment's content during the ELF binary execution.
+
+
+3. load_and_run_elf() -  Loads the ELF binary and executes its "_start" function while tracking memory allocation.
+                         It manages the entire process of loading, executing, and handling segmentation faults to allocate memory.
+                         Executes the _start function and manages segmentation faults by allocating memory for segments causing the fault.
+                         Reports results from _start, page faults, page allocations, and internal fragmentation.
+
+4. main() -              Main entry point of the program. This verifies the correct command-line arguments and 
+                         calls "load_and_run_elf()" to start executing the ELF binary.
+
+
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>   Procedure  <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+> Opens the ELF binary and reads the ELF header.
+> Analyzes the memory required based on the program headers to allocate sufficient address space.
+> Executes the _start function and handles page faults (representing unallocated memory access) by allocating memory for the segments.
+> Reports the result from _start, page faults, page allocations, and internal fragmentation.
+
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>   Contribution  <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+This project is collaboratively developed by both partners, with shared contributions throughout its development.
+
+
