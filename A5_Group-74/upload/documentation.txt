@@ -1,0 +1,55 @@
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< SIMPLE MULTITHREADER >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+Multithreading is a technique used to perform multiple tasks concurrently, improving the overall performance of a program.
+This library simplifies the process of parallelizing loops, allowing developers to harness the power of multicore processors.
+
+
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< FUNTION EXPLANATION >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+ThreadData Structures :  These structures (ThreadData1D and ThreadData2D) are used to encapsulate the parameters required for
+                         executing 1D and 2D loops in parallel. They include the loop boundaries (low, high, low1, high1, low2, high2) 
+                         and a lambda function (lambda) that represents the operation to be performed in each iteration.
+
+Time Utility Functions : These utility functions (getCurrentTime and calculateElapsedTime) are used to measure the elapsed time between
+                         two points with microsecond precision.
+
+Thread Functions : These functions represent the entry points for threads executing 1D and 2D loops, respectively.
+
+Parallel For Functions : These functions implement the parallelization logic for single-dimensional and two-dimensional loops. 
+                         They create and manage threads, dividing the work among them based on the specified number of threads (numThreads).
+
+
+Thread Function for 1D Loop : This function takes a ThreadData1D structure as an argument, executes the lambda function for each iteration 
+                              of the loop, and measures the elapsed time.
+
+Thread Function for 2D Loop : This function takes a ThreadData2D structure as an argument, executes the lambda function for each iteration 
+                              of the 2D loop, and measures the elapsed time.
+
+Parallel For for 1D Loop : This function parallelizes a single-dimensional loop by dividing the work among multiple threads.
+                           It measures the elapsed time for each thread.
+
+Parallel For for 2D Loop : This function parallelizes a two-dimensional loop by dividing the work among multiple threads. It measures
+                           the elapsed time for each thread.
+
+
+
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< CONTRIBUTION >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+This project is collaboratively developed by both partners, with shared contributions throughout its development.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
