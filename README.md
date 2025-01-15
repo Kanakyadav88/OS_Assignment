@@ -1,4 +1,4 @@
-# **Operating System Project**  
+# **Foundation of Operating System**  
 🚀 A comprehensive showcase of foundational systems programming assignments, demonstrating expertise in C programming, operating system concepts, and low-level architecture. These assignments, developed from scratch, replicate real-world OS functionalities, offering an in-depth exploration of the mechanics of modern computing.
 
 ---
@@ -55,8 +55,8 @@
 
 ---
 
-## **How to Explore the Projects**  
+## **How to Explore this project**  
 1. Clone the repository to your local machine:  
    ```bash
-   git clone https://github.com/yourusername/os-project.git
+   git clone https://github.com/yourusername/os_assignment.git
    cd os-projects
